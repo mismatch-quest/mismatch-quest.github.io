@@ -233,7 +233,8 @@ To create  the bounding-box misalignment, we employ GroundingDINO, which takes t
            </h2>
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
            <p> 
-		TODO
+We compile a set of over a million positive image-text pairs, consisting of synthetic and natural images. Approximately 65\% of our examples consist of synthetic and real images, from PickaPic, ImageReward, Flickr30k, COCO , OpenImages and ADE20K.
+Using our ConGen-Feedback method, we generated our training dataset to fine-tune PaLI model to predict a full Textual-Visual feedback.
 	   </p>
          <p style="text-align:center;">
            <br><br>
@@ -248,9 +249,10 @@ To create  the bounding-box misalignment, we employ GroundingDINO, which takes t
            Results for Textual-Visual Feedback
            </h2>
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-           <p> The Textual-Visual feedback results on SeeTRUE-Feedback (Test split) and TV-Feedback dataset (Val split). Overall, the PaLI models fine tuned on \trainset outperform the baselines on all metrics. For example, Non-PaLI models achieved Feedback NLI scores from 0.406 to 0.627, while PaLI models reached 0.718 to 0.749. 
-		The largest, 55B PaLI model achieved the highest performance on the binary alignment classification task. Surprisingly, it underperformed the smaller PaLI models on most feedback generation tasks. Specifically, the smaller PaLI 5B is best performing on the in-distribution testset, but less so on the out-of-distribution examples.
-		The PaLI models gap over the baselines is very large on the textual feedback tasks, but less so on the bounding box task. In future work, we plan to improve the multitasking efficiency of the fine-tuned models.
+           <p> The Textual-Visual feedback results on SeeTRUE-Feedback (Test split) and TV-Feedback dataset (Val split). Overall, the PaLI models fine tuned on \trainset outperform the baselines on all metrics. 
+		For example, Non-PaLI models achieved Feedback NLI scores from 0.406 to 0.627, while PaLI models reached 0.718 to 0.749. 
+		The largest, 55B PaLI model achieved the highest performance on the binary alignment classification task. Surprisingly, it underperformed the smaller PaLI models on most feedback generation tasks. 
+		Specifically, the smaller PaLI 5B is best performing on the in-distribution testset, but less so on the out-of-distribution examples.
 	   </p>
          <p style="text-align:center;">
            <br><br>
@@ -258,51 +260,7 @@ To create  the bounding-box misalignment, we employ GroundingDINO, which takes t
          </p>
          </h3>
       </div>
-<!--       <div class="item">
-         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-           Collecting Weird Images
-           </h2>
-         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-         <p>
-         WHOOPS! is a dataset of 500 synthetic images and 10,874 annotations designed to challenge AI models' ability to reason about commonsense and compositionality. To construct WHOOPS!, we collaborate with designers who use text-to-image models such as Midjourney and DALL-E to generate images that would be challenging (or even impossible) to collect otherwise.
-         WHOOPS! contains commonsense-defying image from a wide range of reasons, deviations from expected social norms and everyday knowledge.
-           <br><br>
-           <img src="static/images/clusters.png"  alt="MY ALT TEXT"/>
-         </p>
-         </h3>
-      </div>
 
-      <div class="item">
-         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-           Using Weird Images to Create V&L Tasks
-           </h2>
-         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-         <p>
-         The WHOOPS! benchmark includes four tasks:
-            <ol class="pr-2 pl-6">
-              <li>A novel task of explanation-of-violation: generating a detailed explanation for what makes the image weird</li>
-              <li>Generating a literal caption</li>
-              <li>Distinguishing between detailed and underspecified captions</li>
-             <li>Answering questions that test compositional understanding</li>
-            </ol>
-             <br><br>
-           <img src="static/images/benchmarking.png"/>
-         </p>
-         </h3>
-      </div>
-
-      <div class="item">
-         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-           Test Results for Explanation-of-violation
-           </h2>
-         <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-           <p>Models significantly lag behind human performance. For example, on identification, the best end-to-end fine-tuned BLIP2 FlanT5-XXL model achieves at best 73%. For explanation, even the oracle model (which is given access to a ground-truth, human-authored description of the image) only achieves a performance of 68%, falling substantially short of human performance (95%). We also added auto-eval results that are correlated with the human-eval. These results indicate that our dataset provides a challenging benchmark for the development of next-generation vision-and-language models.</p>
-         <p style="text-align:center;">
-           <br><br>
-           <img src="static/images/Tb1.png"  style="width: 80%; height: 80%"/>
-         </p>
-         </h3>
-      </div> -->
   </div>
 </div>
 </div>
@@ -317,8 +275,8 @@ To create  the bounding-box misalignment, we employ GroundingDINO, which takes t
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
       <pre><code>
-	      TO-DO !!!!
-      }</code></pre>
+	      TODO
+	</code></pre>
     </div>
 </section>
     </div>
