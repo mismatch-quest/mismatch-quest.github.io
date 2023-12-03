@@ -143,9 +143,12 @@
                <br>
             </p>
             <h3 class="subtitle is-size-5-tablet has-text-left pb-5">
-		The SeeTRUE-Feedback dataset is a diverse benchmark for the meta-evaluation of image-text matching/alignment feedback. 
-		<br>It aims to overcome limitations in current benchmarks, which primarily focus on predicting a matching score between 0-1. 
-		<br>SeeTRUE provides, for each row, the original caption, feedback related to text-image misalignment, and the caption+visual source of misalignments (including a bounding box for the visual misalignment).
+We propose enhancing traditional image-text alignment models by introducing a feedback mechanism that not only scores but also describes and visually annotates discrepancies between images and text. 
+Our method utilizes large language models and visual grounding models to automatically generate a training set (TV-Feedback dataset) with plausible misaligned captions, along with textual explanations and visual indicators. 
+We also provide a human-curated test set (SeeTRUE-Feedback) with authentic textual and visual misalignment annotations.
+<!--This paper introduces a method for explaining misalignments in text-image pairs. 
+<!-- By utilizing large language models and visual grounding models, we automatically generate a training set (TV-Feedback dataset) with plausible misaligned captions, accompanied by textual explanations and visual indicators.  -->
+<!--Additionally, we release a human-curated test set (SeeTRUE-Feedback) containing authentic textual and visual misalignment annotations. -->
 		<br>
             </h3>
         </div>
@@ -182,6 +185,7 @@
            </h2>
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
            <p> 
+		Our fine-tuned model results on our generated training data.
 		Please note the precision of our produced Textual-Visual feedback, which includes: a concise explanation of the misalignment, a misalignment cue that pinpoints the contradictory source in the caption, and a labeled bounding box.
 	   </p>
          <p style="text-align:center;">
@@ -193,11 +197,11 @@
 
        <div class="item">
         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-           	Textual-Visual feedback "in the wild"
+           	Textual-Visual feedback ‘in-the-wild’
            </h2>
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
            <p> 
-		TODO
+		We evaluate our model’s generalization capabilities on ‘in-the-wild’ Text-to-Image (T2I) generations from , created using Adobe Firefly, Composable Diffusion, and Stable Diffusion versions 1.0 and 2.1.
 	   </p>
          <p style="text-align:center;">
            <br><br>
@@ -208,11 +212,13 @@
 
        <div class="item">
         <h2 class="subtitle is-size-3-tablet has-text-weight-bold has-text-centered has-background-info-light mr-0 pt-3 pb-3">
-           	Generation Pipeline
+           	Textual-Visual Feedback Generation Pipeline (ConGen-Feedback)
            </h2>
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
            <p> 
-		TODO
+For each aligned image/caption pair we define a misalignment category (object , attribute, action, or spatial relations). 
+Per chosen misalignment candidate, we instruct PaLM 2 API with few-shot prompts to automatically generate: (a) a contradiction caption that introduces the target misalignment; (b) a detailed explanation of the contradiction; (c) a misalignment cue that pinpoints the contradictory element in the caption; and (d) a label for the visual bounding box to be placed on the image.
+To create  the bounding-box misalignment, we employ GroundingDINO, which takes the textual label from PaLM 2's output and places a bounding box around the corresponding element in the image. 
 	   </p>
          <p style="text-align:center;">
            <br><br>
