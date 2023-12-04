@@ -214,8 +214,12 @@ We also provide a human-curated test set (SeeTRUE-Feedback) with authentic textu
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
            <p> 
 For each aligned image/caption pair we define a misalignment category (object , attribute, action, or spatial relations). 
-<br>Per chosen misalignment candidate, we instruct PaLM 2 API with few-shot prompts to automatically generate: (a) a contradiction caption that introduces the target misalignment; (b) a detailed explanation of the contradiction; (c) a misalignment cue that pinpoints the contradictory element in the caption; and (d) a label for the visual bounding box to be placed on the image.
-<br>To create the bounding-box misalignment, we employ GroundingDINO, which takes the textual label from PaLM 2's output and places a bounding box around the corresponding element in the image. 
+<br>Per chosen misalignment candidate, we instruct PaLM 2 API with few-shot prompts to automatically generate: 
+<br>(A) Contradiction caption that introduces the target misalignment.
+<br>(B) Detailed explanation of the contradiction (feedback).
+<br>(C) Misalignment cue that pinpoints the contradictory element in the caption.
+<br>(D) a label for the visual bounding box to be placed on the image.
+<br>To create the bounding-box misalignment, we employ GroundingDINO visual grounding model. 
 	   </p>
          <p style="text-align:center;">
            <br><br>
@@ -246,10 +250,9 @@ We compile a set of over a million positive image-text pairs, consisting of synt
            Results for Textual-Visual Feedback
            </h2>
          <h3 class="subtitle is-size-4-tablet has-text-left pr-4 pl-4 pt-3 pb-3">
-           <p> The Textual-Visual feedback results on SeeTRUE-Feedback (Test split) and TV-Feedback dataset (Val split). Overall, the PaLI models fine tuned on TV-Feedback dataset outperform the baselines on all metrics. 
-		<br>For example, Non-PaLI models achieved Feedback NLI scores from 0.406 to 0.627, while PaLI models reached 0.718 to 0.749. 
-		<br>The largest, 55B PaLI model achieved the highest performance on the binary alignment classification task. Surprisingly, it underperformed the smaller PaLI models on most feedback generation tasks. 
-		<br>Specifically, the smaller PaLI 5B is best performing on the in-distribution testset, but less so on the out-of-distribution examples.
+           <p> Textual-Visual feedback results on SeeTRUE-Feedback (Test split) and TV-Feedback dataset (Val split). Our PaLI models fine tuned on TV-Feedback dataset outperform the baselines on all metrics.
+		<br> Using BART-NLI we measure feedback quality by treating ground truth as the ’premise’ and model predictions as the ’hypothesis’ extracting an entailment score as semantic alignment.
+		<br> We evaluate the model’s bounding box generation using F1-Score@0.75 (indicating an IoU threshold of 0.75).
 	   </p>
          <p style="text-align:center;">
            <br><br>
